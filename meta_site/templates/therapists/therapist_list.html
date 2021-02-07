@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+    <div class="container mt-5">
+        <ul class="list-group">
+            {% for therapist in therapists %}
+                {% if therapist.name %}
+                    <li class="list-group-item"><a href="{% url 'therapist' therapist.id %}">{{ therapist.name }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+    <div class="container-fluid">
+        <div class="row p-5">
+            {% if therapist.photo_url %}
+                <div class="col-4 p-4">
+                    <img class="border border-primary rounded w-100" src="{{ therapist.photo_url }}"/>
+                </div>
+            {% else %}
+                <div class="col-4 p-4 border border-primary rounded d-flex align-items-center justify-content-center">
+                    Нет фото
+                </div>
+            {% endif %}
+            <div class="col-8 p-4">
+                <div class="row mb-4 px-4 justify-content-center"><h1>{{ therapist.name }}</h1></div>
+                <div class="row mb-4 px-4"><h4>Методы:</h4></div>
+                <div class="row px-4">
+                    <div style="font-size: 25px">
+                        {% for method in methods %}
+                            <span class="badge badge-primary p-3 mb-4 mr-3">{{ method.name }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
